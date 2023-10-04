@@ -21,7 +21,7 @@ Endpoint
 https://vh4jwq7vx9.execute-api.eu-north-1.amazonaws.com/api/products
 ```
 ___
-### Get Product
+### Get Product 
 Endpoint
 ```
 https://vh4jwq7vx9.execute-api.eu-north-1.amazonaws.com/api/product/{id}

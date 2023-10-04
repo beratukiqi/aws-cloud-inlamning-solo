@@ -1,0 +1,66 @@
+service: aws-cloud-inlamning-solo
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: serverless-user
+  region: eu-north-1
+  iam:
+    role: arn:aws:iam::737858458547:role/service-role/serverless-api-role
+
+plugins:
+  - serverless-webpack
+
+package:
+  individually: true
+
+functions:
+  getAllProducts:
+    handler: functions/getAllProducts/index.handler
+    events:
+      - httpApi:
+          path: /api/products
+          method: get
+
+  getProduct:
+    handler: functions/getProduct/index.handler
+    events:
+      - httpApi:
+          path: /api/product/{id}
+          method: get
+
+  postProduct:
+    handler: functions/postProduct/index.handler
+    events:
+      - httpApi:
+          path: /api/product/new
+          method: post
+
+  updateProduct:
+    handler: functions/updateProduct/index.handler
+    events:
+      - httpApi:
+          path: /api/product/{id}
+          method: post
+
+  deleteProduct:
+    handler: functions/deleteProduct/index.handler
+    events:
+      - httpApi:
+          path: /api/product/{id}
+          method: delete
+
+resources:
+  Resources:
+    beratDb:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: berat-db
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST

@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "serverless-webpack": "^5.13.0"
+  },
+  "dependencies": {
+    "@serverless/aws-cognito": "^1.0.0",
+    "nanoid": "^5.0.1"
+  }
+}

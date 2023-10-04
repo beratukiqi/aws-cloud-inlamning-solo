@@ -1,72 +1,52 @@
-<!--
-title: 'AWS NodeJS Example'
-description: 'This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework.'
-layout: Doc
-framework: v3
-platform: AWS
-language: nodeJS
-priority: 1
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
--->
+## JWT Signup page
+https://product-domain.auth.eu-north-1.amazoncognito.com/signup?client_id=4h4sikgbuiasmft2ch7iv2u6tt&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https%3A%2F%2Flocalhost%3A3000
 
-
-# Serverless Framework AWS NodeJS Example
-
-This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework. The deployed function does not include any event definitions as well as any kind of persistence (database). For more advanced configurations check out the [examples repo](https://github.com/serverless/examples/) which includes integrations with SQS, DynamoDB or examples of functions that are triggered in `cron`-like manner. For details about configuration of specific `events`, please refer to our [documentation](https://www.serverless.com/framework/docs/providers/aws/events/).
-
-## Usage
-
-### Deployment
-
-In order to deploy the example, you need to run the following command:
-
+## API Routes
+### Add Product
+Endpoint
+``` 
+https://vh4jwq7vx9.execute-api.eu-north-1.amazonaws.com/api/product/new
 ```
-$ serverless deploy
-```
-
-After running deploy, you should see output similar to:
-
-```bash
-Deploying aws-node-project to stage dev (us-east-1)
-
-✔ Service deployed to stack aws-node-project-dev (112s)
-
-functions:
-  hello: aws-node-project-dev-hello (1.5 kB)
-```
-
-### Invocation
-
-After successful deployment, you can invoke the deployed function by using the following command:
-
-```bash
-serverless invoke --function hello
-```
-
-Which should result in response similar to the following:
-
-```json
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": {}\n}"
-}
-```
-
-### Local development
-
-You can invoke your function locally by using the following command:
-
-```bash
-serverless invoke local --function hello
-```
-
-Which should result in response similar to the following:
-
+Body
 ```
 {
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
+  "title": "WOOOOOOOOOO",
+  "price": 1337
 }
+```
+___   
+### Get All Products
+Endpoint
+``` 
+https://vh4jwq7vx9.execute-api.eu-north-1.amazonaws.com/api/products
+```
+___
+### Get Product
+Endpoint
+```
+https://vh4jwq7vx9.execute-api.eu-north-1.amazonaws.com/api/product/{id}
+```
+Available id 
+```
+dmza9ioqFAUGQyIU_B7AV
+```
+___
+### Update Product
+Endpoint
+```
+https://vh4jwq7vx9.execute-api.eu-north-1.amazonaws.com/api/product/{id}
+```
+Available id 
+```
+dmza9ioqFAUGQyIU_B7AV
+```
+___
+### Delete Product
+Endpoint
+```
+https://vh4jwq7vx9.execute-api.eu-north-1.amazonaws.com/api/product/{id}
+```
+Available id 
+```
+dmza9ioqFAUGQyIU_B7AV
 ```
